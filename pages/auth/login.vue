@@ -1,4 +1,14 @@
 <script setup>
+
+const chkbxVal = ref(false);
+const isRemember = computed(() => {
+  if(chkbxVal.value){
+    return "Yes"
+  } else {
+    return "No"
+  }
+});
+
 definePageMeta({
   layout: "auth",
 });
@@ -30,8 +40,13 @@ definePageMeta({
           class="border border-black rounded-md px-2 py-1 w-[20vw]"
         />
       </div>
-      <div class="flex items-center justify-end w-full h-auto">
-        <NuxtLink to="/" class="cursor-pointer underline">Go to Home Page</NuxtLink>
+      <div class="flex items-center gap-4">
+        <h3>Remember Me</h3>
+        <input type="checkbox" v-model="chkbxVal" class="mt-[2px] size-4 cursor-pointer bg-black">
+        <h2>{{ isRemember }}</h2>
+      </div>
+      <div class="flex items-end justify-end w-full">
+        <NuxtLink to="/" class="cursor-pointer underline text-xs">Go to Home Page</NuxtLink>
       </div>
     </div>
   </div>

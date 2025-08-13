@@ -1,11 +1,11 @@
 <script setup>
 const route = useRoute();
 const data = ref([]);
-data.value = await useFetch('https://api.agify.io?name=meelad')
+data.value = await useFetch('https://fakestoreapi.com/products')
 
 
 onMounted(async () => {
-  // data.value = await useFetch('https://api.agify.io?name=meelad');
+  // data.value = await useFetch('https://fakestoreapi.com/users');
 })
 
 
@@ -20,6 +20,6 @@ onMounted(async () => {
 
 
 <template>
-  <pre>{{ data.data.count }}</pre>
+  <pre>{{ data?.data[1] }}</pre>
   <h1>Blog post {{ route.params.id }}</h1>
 </template>
